@@ -1,13 +1,25 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { ColorScheme, ColorSchemeProvider, MantineProvider, MantineTheme } from "@mantine/core";
 import { useState } from "react";
+import { DeepPartial } from "@mantine/styles/lib/theme/types/DeepPartial";
+import AppContainer from "../components/AppContainer";
+import "../styles/globals.css";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
+  const headings: DeepPartial<MantineTheme["headings"]> = {
+    fontWeight: 400,
+    sizes: {
+      h1: { fontSize: 48 },
+      h2: { fontSize: 32 },
+      h3: { fontSize: 22 },
+    },
+  };
 
   return (
     <>
@@ -17,8 +29,10 @@ export default function App(props: AppProps) {
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme }}>
-          <Component {...pageProps} />
+        <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme, headings }}>
+          <AppContainer>
+            <Component {...pageProps} />
+          </AppContainer>
         </MantineProvider>
       </ColorSchemeProvider>
     </>
