@@ -34,7 +34,7 @@ export default function TableOfContents() {
       <MantineNavbar.Section>
         {content.map((c) => (
           <ul className={`toc-header ${c.resource === paths[0] ? "active" : ""}`} key={c.header}>
-            <li className="toc-item">
+            <li className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""}`} style={{}}>
               <Link href={`/${c.resource}`}>{c.header}</Link>
             </li>
             {c.subheaders && (

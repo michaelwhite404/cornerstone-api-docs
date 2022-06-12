@@ -75,3 +75,8 @@ a {
   background-color: #e7f5ff;
   color: #1971c2;
 }
+
+.toc-header.active .toc-item.dark {
+  background-color: rgba(24, 100, 171, 0.45);
+  color: rgb(208, 235, 255);
+}
