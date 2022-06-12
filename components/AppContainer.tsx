@@ -1,4 +1,5 @@
-import { AppShell, Button, Navbar, Header, useMantineColorScheme } from "@mantine/core";
+import { AppShell, Button, Header, useMantineColorScheme } from "@mantine/core";
+import TableOfContents from "./shell/TableOfContents";
 
 const AppContainer = (props: AppContainerProps) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -19,13 +20,7 @@ const AppContainer = (props: AppContainerProps) => {
           </Button>
         </Header>
       }
-      navbar={
-        <Navbar width={{ base: 200 }}>
-          <Navbar.Section>
-            <ul>API Reference</ul>
-          </Navbar.Section>
-        </Navbar>
-      }
+      navbar={<TableOfContents />}
     >
       {props.children}
     </AppShell>

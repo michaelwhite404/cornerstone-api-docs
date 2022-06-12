@@ -2,7 +2,16 @@ import { Code as MantineCode } from "@mantine/core";
 import { ReactNode } from "react";
 
 function Code(props: CodeProps) {
-  return <MantineCode className="code-block">{props.children}</MantineCode>;
+  return (
+    <MantineCode
+      className="code-block"
+      styles={(theme) => ({
+        backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[1] : "#f7f8fa",
+      })}
+    >
+      {props.children}
+    </MantineCode>
+  );
 }
 
 function RouteParam(props: RouteParamProps) {
