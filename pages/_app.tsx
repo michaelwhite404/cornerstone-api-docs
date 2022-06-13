@@ -1,14 +1,18 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { ColorScheme, ColorSchemeProvider, MantineProvider, MantineTheme } from "@mantine/core";
-import { useState } from "react";
+import { useLocalStorage } from "@mantine/hooks";
 import { DeepPartial } from "@mantine/styles/lib/theme/types/DeepPartial";
 import AppContainer from "../components/AppContainer";
 import "../styles/globals.css";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: "color-scheme",
+    defaultValue: "light",
+    getInitialValueInEffect: true,
+  });
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
