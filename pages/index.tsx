@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import httpVerbs from "../utils/httpVerbs";
 import Code from "../components/Code";
 import Table from "../components/Table";
+import { H1, H2 } from "../components/headings";
 
 const tableHeaders = [
   { label: "Verb", key: "method" },
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div>
-        <Title order={1}>Cornerstone API Reference</Title>
+        <H1>Cornerstone API Reference</H1>
         <p>
           The Cornerstone API is a HTTP JSON API and allows you to programatically add, update,
           retrieve, and delete records from various resources, allowing you to connect data.
@@ -30,11 +31,9 @@ const Home: NextPage = () => {
           You can access the API directly via HTTP, via the official JavaScript API client, or via
           any third-party integrations for your language of choice.
         </p>
-        <Title order={2}>HTTP Verbs</Title>
-        <Space h="md" />
+        <H2>HTTP Verbs</H2>
         <Table headers={tableHeaders} data={httpVerbs} />
-        <Space h="md" />
-        <Title order={2}>Parameters</Title>
+        <H2>Parameters</H2>
         <p>Requests may have both required and/or optional parameters.</p>
         <p>
           Depending on the HTTP verb, the parameters may be in either the URL itself, or in the
@@ -48,10 +47,10 @@ const Home: NextPage = () => {
         </p>
         <p>For example:</p>
         <Code>
-          GET /sites/<span className="route-param">:site_id</span>/collections
+          GET /textbooks/<span className="route-param">:textbook_id</span>/books
         </Code>
         <p>
-          In this example, <Code>site_id</Code> is the route param.
+          In this example, <Code>textbook_id</Code> is the route param.
         </p>
         <Title order={3}>Query String</Title>
         <p>

@@ -1,0 +1,6 @@
+{
+  "exportall.config.relExclusion": [
+    "/components/headings",
+    "/components/headings/index.ts"
+  ]
+}
