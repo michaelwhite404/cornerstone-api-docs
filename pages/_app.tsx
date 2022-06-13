@@ -16,6 +16,7 @@ export default function App(props: AppProps) {
   useLocalStorage({
     key: "language",
     defaultValue: "shell",
+    getInitialValueInEffect: true,
   });
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));

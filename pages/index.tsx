@@ -66,7 +66,8 @@ const Home: NextPage = () => {
         In this example, the query string contains two parameters, <Code>foo</Code> and{" "}
         <Code>abc</Code>.
       </p>
-      <CodeBlock aboveBlock="Text above code block">{codeStr}</CodeBlock>
+      <CodeBlock language="shell">{codeStr}</CodeBlock>
+      <CodeBlock language="javascript">function ME() &#123; &#125;</CodeBlock>
       <H3>Request Body</H3>
       <p>
         All other requests will have their parameters passed in as part of the JSON-formatted

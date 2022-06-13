@@ -1,11 +1,22 @@
+import { useLocalStorage } from "@mantine/hooks";
 import { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { lightfair } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export default function CodeBlock(props: CodeBlockProps) {
+  const [currentLanguage] = useLocalStorage({
+    key: "language",
+    getInitialValueInEffect: true,
+  });
   const backgroundColor = "#f6f8f9";
   return (
-    <div className="highlight">
+    <div
+      className="highlight"
+      style={{
+        display: props.language === "json" || props.language === currentLanguage ? "block" : "none",
+      }}
+      data-language={props.language}
+    >
       <div
         style={{
           clear: "right",
@@ -38,5 +49,8 @@ export default function CodeBlock(props: CodeBlockProps) {
 
 interface CodeBlockProps {
   children: string | string[];
+  language: ProgrammingLanguage;
   aboveBlock?: ReactNode;
 }
+
+type ProgrammingLanguage = "shell" | "json" | "javascript";
