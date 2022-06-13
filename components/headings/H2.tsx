@@ -1,7 +1,7 @@
 import { Title } from "@mantine/core";
 import { HeadingProps } from ".";
 
-export default function H1(props: HeadingProps) {
+export default function H2(props: HeadingProps) {
   return (
     <Title
       order={2}

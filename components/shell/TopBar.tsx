@@ -6,6 +6,7 @@ export default function TopBar() {
   const dark = colorScheme === "dark";
   const [language, setLanguage] = useLocalStorage({
     key: "language",
+    getInitialValueInEffect: true,
   });
 
   return (

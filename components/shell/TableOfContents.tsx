@@ -19,6 +19,7 @@ const contents: NavbarContent[] = [
   {
     header: "Students",
     subheaders: [
+      "Model",
       "Get All Students",
       "Get Single Student",
       "Create Student",

@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         <Code>abc</Code>.
       </p>
       <CodeBlock language="shell">{codeStr}</CodeBlock>
-      <CodeBlock language="javascript">function ME() &#123; &#125;</CodeBlock>
+      <CodeBlock language="javascript">const CStone = require(&quot;cstone-dc&quot;)</CodeBlock>
       <H3>Request Body</H3>
       <p>
         All other requests will have their parameters passed in as part of the JSON-formatted

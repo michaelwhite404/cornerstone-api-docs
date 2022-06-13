@@ -29,7 +29,7 @@ export default function Table(props: TableProps) {
   );
 }
 
-interface TableProps {
+export interface TableProps {
   headers: TableHeader[];
   data: any[];
 }
