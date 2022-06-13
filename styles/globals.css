@@ -84,3 +84,40 @@ a {
   background-color: rgba(24, 100, 171, 0.45);
   color: rgb(208, 235, 255);
 }
+
+
+.custom-table {
+  border-radius: 12px;
+  box-shadow: 0 1px 9px 0px rgb(0 0 0 / 17%);
+  /* border:1px solid rgb(0 0 0 / 17%); */
+  overflow: hidden;
+  text-align: left
+}
+
+.custom-table th {
+  background-color: #f9f9fb;
+  border-bottom: 1px solid #d1d5db;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #9ca3af;
+  font-size:14px
+}
+
+.custom-table td {
+  border-bottom: 1px solid #d1d5db;
+  padding: 5px 20px;
+  font-size: 14px
+}
+
+.custom-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr th:first-child, .custom-table tr td:first-child  {
+  padding-left: 20px
+}
+
+.custom-table tr th:last-child,
+.custom-table tr td:last-child {
+  padding-right: 20px
+}

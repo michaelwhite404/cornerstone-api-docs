@@ -60,13 +60,19 @@ function TOCSection({
         <Link href={`/${content.resource}`}>{content.header}</Link>
       </li>
       {content.subheaders && (
-        <ul className="toc-subheader">
+        <ul
+          className="toc-subheader"
+          style={{
+            display: active ? "block" : "none",
+          }}
+        >
           {content.subheaders.map((subheader) => (
             <li key={subheader} id={slugify(subheader, { lower: true })}>
               <div
                 style={{
                   borderLeftColor:
                     theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
+                  height: 32,
                 }}
               >
                 <Link href={`/${content.resource}#${slugify(subheader, { lower: true })}`}>

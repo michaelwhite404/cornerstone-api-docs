@@ -1,9 +1,15 @@
-import { Title, Table } from "@mantine/core";
+import { Title, Space } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import httpVerbs from "../utils/httpVerbs";
 import Code from "../components/Code";
+import Table from "../components/Table";
+
+const tableHeaders = [
+  { label: "Verb", key: "method" },
+  { label: "Description", key: "description" },
+];
 
 const Home: NextPage = () => {
   return (
@@ -25,22 +31,9 @@ const Home: NextPage = () => {
           any third-party integrations for your language of choice.
         </p>
         <Title order={2}>HTTP Verbs</Title>
-        <Table>
-          <thead>
-            <tr>
-              <th>Verb</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {httpVerbs.map((verb) => (
-              <tr key={verb.method}>
-                <td>{verb.method}</td>
-                <td>{verb.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+        <Space h="md" />
+        <Table headers={tableHeaders} data={httpVerbs} />
+        <Space h="md" />
         <Title order={2}>Parameters</Title>
         <p>Requests may have both required and/or optional parameters.</p>
         <p>
