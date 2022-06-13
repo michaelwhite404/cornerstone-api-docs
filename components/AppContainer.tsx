@@ -22,16 +22,7 @@ const AppContainer = (props: AppContainerProps) => {
       }
       navbar={<TableOfContents />}
     >
-      <div
-        style={{
-          marginLeft: 250,
-          marginTop: 60,
-          marginRight: "40%",
-          paddingLeft: 15,
-        }}
-      >
-        {props.children}
-      </div>
+      <div className="main-container">{props.children}</div>
     </AppShell>
   );
 };
