@@ -4,7 +4,7 @@ import Head from "next/head";
 import httpVerbs from "../utils/httpVerbs";
 import Code from "../components/Code";
 import Table from "../components/Table";
-import { H1, H2 } from "../components/headings";
+import { H1, H2, H3 } from "../components/headings";
 import CodeBlock from "../components/CodeBlock";
 
 const tableHeaders = [
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         Depending on the HTTP verb, the parameters may be in either the URL itself, or in the
         request body.
       </p>
-      <Title order={3}>Route Params</Title>
+      <H3>Route Params</H3>
       <p>
         Route params will be defined as part of the path for a given API endpoint. They will be
         highlighted in a separate color, and prefixed with a colon ( <Code>:</Code> ) for easy
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
       <p>
         In this example, <Code>textbook_id</Code> is the route param.
       </p>
-      <Title order={3}>Query String</Title>
+      <H3>Query String</H3>
       <p>
         <Code>GET</Code> requests will have their parameters passed in via the query string.
       </p>
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         <Code>abc</Code>.
       </p>
       <CodeBlock aboveBlock="Text above code block">{codeStr}</CodeBlock>
-      <Title order={3}>Request Body</Title>
+      <H3>Request Body</H3>
       <p>
         All other requests will have their parameters passed in as part of the JSON-formatted
         request body. <Code>POST</Code>, <Code>PUT</Code> and <Code>PATCH</Code> requests including

@@ -13,6 +13,10 @@ export default function App(props: AppProps) {
     defaultValue: "light",
     getInitialValueInEffect: true,
   });
+  useLocalStorage({
+    key: "language",
+    defaultValue: "shell",
+  });
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
