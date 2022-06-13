@@ -1,6 +1,7 @@
-import { Navbar as MantineNavbar, useMantineTheme } from "@mantine/core";
+import { MantineTheme, Navbar as MantineNavbar, useMantineTheme } from "@mantine/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import slugify from "slugify";
 
 interface NavbarContent {
   header: string;
@@ -8,9 +9,13 @@ interface NavbarContent {
   resource: string;
 }
 
-const content: NavbarContent[] = [
+const contents: NavbarContent[] = [
   { header: "API Reference", subheaders: ["HTTP Verbs", "Parameters"], resource: "" },
-  { header: "Authentication", resource: "authentication" },
+  {
+    header: "Authentication",
+    resource: "authentication",
+    subheaders: ["Create User", "Login User", "Logout User", "Update Current User Password"],
+  },
   {
     header: "Students",
     subheaders: [
@@ -30,34 +35,48 @@ export default function TableOfContents() {
   const router = useRouter();
   const paths = router.pathname.substring(1).split("/");
   return (
-    <MantineNavbar width={{ base: 250 }} className="table-of-contents">
+    <MantineNavbar fixed width={{ base: 250 }} className="table-of-contents">
       <MantineNavbar.Section>
-        {content.map((c) => (
-          <ul className={`toc-header ${c.resource === paths[0] ? "active" : ""}`} key={c.header}>
-            <li className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""}`} style={{}}>
-              <Link href={`/${c.resource}`}>{c.header}</Link>
-            </li>
-            {c.subheaders && (
-              <ul className="toc-subheader">
-                {c.subheaders.map((subheader) => (
-                  <li key={subheader}>
-                    <div
-                      style={{
-                        borderLeftColor:
-                          theme.colorScheme === "dark"
-                            ? theme.colors.dark[5]
-                            : theme.colors.gray[1],
-                      }}
-                    >
-                      <Link href="#">{subheader}</Link>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </ul>
+        {contents.map((c) => (
+          <TOCSection content={c} theme={theme} active={c.resource === paths[0]} key={c.header} />
         ))}
       </MantineNavbar.Section>
     </MantineNavbar>
+  );
+}
+
+function TOCSection({
+  content,
+  theme,
+  active,
+}: {
+  content: NavbarContent;
+  theme: MantineTheme;
+  active: boolean;
+}) {
+  return (
+    <ul className={`toc-header ${active ? "active" : ""}`} key={content.header}>
+      <li className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""}`} style={{}}>
+        <Link href={`/${content.resource}`}>{content.header}</Link>
+      </li>
+      {content.subheaders && (
+        <ul className="toc-subheader">
+          {content.subheaders.map((subheader) => (
+            <li key={subheader} id={slugify(subheader, { lower: true })}>
+              <div
+                style={{
+                  borderLeftColor:
+                    theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
+                }}
+              >
+                <Link href={`/${content.resource}#${slugify(subheader, { lower: true })}`}>
+                  {subheader}
+                </Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </ul>
   );
 }

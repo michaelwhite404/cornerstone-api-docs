@@ -8,7 +8,7 @@ const AppContainer = (props: AppContainerProps) => {
   return (
     <AppShell
       header={
-        <Header height={60}>
+        <Header fixed height={60}>
           Header{" "}
           <Button
             // variant="outline"
@@ -22,7 +22,14 @@ const AppContainer = (props: AppContainerProps) => {
       }
       navbar={<TableOfContents />}
     >
-      {props.children}
+      <div
+        style={{
+          marginLeft: 250,
+          marginTop: 60,
+        }}
+      >
+        {props.children}
+      </div>
     </AppShell>
   );
 };
