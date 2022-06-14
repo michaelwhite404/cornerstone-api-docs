@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { ColorScheme, ColorSchemeProvider, MantineProvider, MantineTheme } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
+import { NotificationsProvider } from "@mantine/notifications";
 import { DeepPartial } from "@mantine/styles/lib/theme/types/DeepPartial";
 import AppContainer from "../components/AppContainer";
 import "../styles/globals.css";
@@ -37,13 +38,15 @@ export default function App(props: AppProps) {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme, headings }}>
-          <AppContainer>
-            <Component {...pageProps} />
-          </AppContainer>
-        </MantineProvider>
-      </ColorSchemeProvider>
+      <NotificationsProvider>
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+          <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme, headings }}>
+            <AppContainer>
+              <Component {...pageProps} />
+            </AppContainer>
+          </MantineProvider>
+        </ColorSchemeProvider>
+      </NotificationsProvider>
     </>
   );
 }
