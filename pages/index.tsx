@@ -33,9 +33,9 @@ const Home: NextPage = () => {
         You can access the API directly via HTTP, via the official JavaScript API client, or via any
         third-party integrations for your language of choice.
       </p>
-      <H2>HTTP Verbs</H2>
+      <H2 id="http-verbs">HTTP Verbs</H2>
       <Table headers={tableHeaders} data={httpVerbs} />
-      <H2>Parameters</H2>
+      <H2 id="parameters">Parameters</H2>
       <p>Requests may have both required and/or optional parameters.</p>
       <p>
         Depending on the HTTP verb, the parameters may be in either the URL itself, or in the

@@ -104,9 +104,10 @@ a {
 }
 
 .custom-table td {
-  border-bottom: 1px solid #e5e7eb;
-  padding: 5px 20px;
+  border-bottom: 1px solid #e5e7eb; /* dark #303030 */
+  padding: 7px 20px;
   font-size: 14px
+  
 }
 
 .custom-table tbody tr:last-child td {
@@ -144,4 +145,14 @@ a {
 .main-container h6, 
 .main-container p {
   margin-right: 45%
+}
+
+.link-icon {
+  margin-left: 15px;
+  cursor: pointer;
+  width: 20px;
+}
+
+.link-icon:hover {
+  color: #1b72e8
 }

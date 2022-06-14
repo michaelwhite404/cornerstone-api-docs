@@ -68,7 +68,7 @@ function TOCSection({
           }}
         >
           {content.subheaders.map((subheader) => (
-            <li key={subheader} id={slugify(subheader, { lower: true })}>
+            <li key={subheader}>
               <div
                 style={{
                   borderLeftColor:

@@ -60,7 +60,7 @@ const Students: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <H1>Students</H1>
-      <H2>Model</H2>
+      <H2 id="model">Model</H2>
       <Table headers={modelTable.headers} data={modelTable.data} />
     </>
   );
