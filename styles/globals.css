@@ -75,7 +75,7 @@ a {
   overflow-x: hidden;
 }
 
-.toc-header.active .toc-item {
+.toc-header.active .toc-item.active {
   background-color: #e7f5ff;
   color: #1971c2;
 }

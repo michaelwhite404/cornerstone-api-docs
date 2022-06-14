@@ -35,7 +35,7 @@ export default function CodeBlock(props: CodeBlockProps) {
           }}
         >
           <SyntaxHighlighter
-            language="bash"
+            language={props.language === "shell" ? "bash" : props.language}
             style={lightfair}
             customStyle={{ fontSize: 13.5, backgroundColor }}
           >

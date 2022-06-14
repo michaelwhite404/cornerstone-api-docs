@@ -1,7 +1,9 @@
 import { MantineTheme, Navbar as MantineNavbar, useMantineTheme } from "@mantine/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import slugify from "slugify";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 interface NavbarContent {
   header: string;
@@ -35,11 +37,19 @@ export default function TableOfContents() {
   const theme = useMantineTheme();
   const router = useRouter();
   const paths = router.pathname.substring(1).split("/");
+  const activeId = useIntersectionObserver();
+
   return (
     <MantineNavbar fixed width={{ base: 250 }} className="table-of-contents">
       <MantineNavbar.Section>
         {contents.map((c) => (
-          <TOCSection content={c} theme={theme} active={c.resource === paths[0]} key={c.header} />
+          <TOCSection
+            content={c}
+            theme={theme}
+            active={c.resource === paths[0]}
+            activeId={activeId}
+            key={c.header}
+          />
         ))}
       </MantineNavbar.Section>
     </MantineNavbar>
@@ -50,14 +60,20 @@ function TOCSection({
   content,
   theme,
   active,
+  activeId,
 }: {
   content: NavbarContent;
   theme: MantineTheme;
   active: boolean;
+  activeId: string;
 }) {
   return (
     <ul className={`toc-header ${active ? "active" : ""}`} key={content.header}>
-      <li className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""}`} style={{}}>
+      <li
+        className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""} ${
+          activeId === "" ? "active" : ""
+        }`}
+      >
         <Link href={`/${content.resource}`}>{content.header}</Link>
       </li>
       {content.subheaders && (
@@ -67,21 +83,22 @@ function TOCSection({
             display: active ? "block" : "none",
           }}
         >
-          {content.subheaders.map((subheader) => (
-            <li key={subheader}>
-              <div
-                style={{
-                  borderLeftColor:
-                    theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
-                  height: 32,
-                }}
-              >
-                <Link href={`/${content.resource}#${slugify(subheader, { lower: true })}`}>
-                  {subheader}
-                </Link>
-              </div>
-            </li>
-          ))}
+          {content.subheaders.map((subheader) => {
+            const refId = slugify(subheader, { lower: true });
+            return (
+              <li className={`toc-item ${activeId === refId ? "active" : ""}`} key={subheader}>
+                <div
+                  style={{
+                    borderLeftColor:
+                      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[1],
+                    height: 32,
+                  }}
+                >
+                  <Link href={`/${content.resource}#${refId}`}>{subheader}</Link>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
     </ul>
