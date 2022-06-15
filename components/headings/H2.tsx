@@ -36,7 +36,8 @@ export default function H2(props: HeadingProps) {
     <Title
       order={2}
       style={{
-        margin: "50px 0 30px 0",
+        paddingTop: 60,
+        marginBottom: 30,
         fontWeight: 300,
       }}
       ref={ref}

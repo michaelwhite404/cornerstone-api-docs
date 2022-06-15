@@ -35,10 +35,10 @@ const useIntersectionObserver = () => {
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: "0px 0px 0px 0px",
+      rootMargin: "-20px 0px 0px 0px",
     });
 
-    const headingElements = Array.from(document.querySelectorAll("h1, h2"));
+    const headingElements = Array.from(document.querySelectorAll("section, h1"));
 
     headingElements.forEach((element) => observer.observe(element));
 

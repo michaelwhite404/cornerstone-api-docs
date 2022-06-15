@@ -187,3 +187,13 @@ a {
     margin-right: 0
   }
 }
+
+@media screen and (max-width: 930px) {
+  .table-of-contents {
+    display: none;
+  }
+
+  .main-container {
+    margin-left: none
+  }
+}

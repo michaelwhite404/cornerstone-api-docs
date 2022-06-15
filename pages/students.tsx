@@ -15,16 +15,19 @@ const Students: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <H1>Students</H1>
-      <H2 id="model">Model</H2>
-      <Table headers={modelTable.headers} data={modelTable.data} />
-      <H2 id="get-all-students">Get All Students</H2>
-      <CodeBlock aboveBlock="Example Request" language="shell">
-        {`curl https://app.cornerstone-schools.org/api/students?status=Active&limit=2 \\
+      <section id="model">
+        <H2>Model</H2>
+        <Table headers={modelTable.headers} data={modelTable.data} />
+      </section>
+      <section id="get-all-students">
+        <H2>Get All Students</H2>
+        <CodeBlock aboveBlock="Example Request" language="shell">
+          {`curl https://app.cornerstone-schools.org/api/students?status=Active&limit=2 \\
   -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
   -H 'Content-Type: application/json'  `}
-      </CodeBlock>
-      <CodeBlock aboveBlock="Example Request" language="javascript">
-        {`const CStone = require("cstone-dc")
+        </CodeBlock>
+        <CodeBlock aboveBlock="Example Request" language="javascript">
+          {`const CStone = require("cstone-dc")
 const cstone = new CStone({token: '<YOUR TOKEN HERE>'})
 
 // Promise <Student[]>
@@ -35,9 +38,9 @@ const students = cstone.list({
 
 students.then(s => console.log(s))
 `}
-      </CodeBlock>
-      <CodeBlock aboveBlock="Example JSON Response" language="json">
-        {`[
+        </CodeBlock>
+        <CodeBlock aboveBlock="Example JSON Response" language="json">
+          {`[
   {
     "_id" : "61d5d74e7411400018e6eef9",
     "aftercare" : false,
@@ -63,20 +66,21 @@ students.then(s => console.log(s))
     "status" : "Active"
   }
 ]`}
-      </CodeBlock>
-      <p>Lists all students</p>
-      <H3>Request</H3>
-      <Code>GET /students</Code>
-      <H3>Path Parameters</H3>
-      <p>There are no path parameters for this request</p>
-      <H3>Query Parameters</H3>
-      <p>
-        All of the fields in the student model can be used as query parameters. Here are additional
-        query parameter that can be used:
-      </p>
-      <Table headers={listQueryTable.headers} data={listQueryTable.data}></Table>
-      <H3>Response</H3>
-      <Code>Student[]</Code>
+        </CodeBlock>
+        <p>Lists all students</p>
+        <H3>Request</H3>
+        <Code>GET /students</Code>
+        <H3>Path Parameters</H3>
+        <p>There are no path parameters for this request</p>
+        <H3>Query Parameters</H3>
+        <p>
+          All of the fields in the student model can be used as query parameters. Here are
+          additional query parameter that can be used:
+        </p>
+        <Table headers={listQueryTable.headers} data={listQueryTable.data}></Table>
+        <H3>Response</H3>
+        <Code>Student[]</Code>
+      </section>
     </>
   );
 };
