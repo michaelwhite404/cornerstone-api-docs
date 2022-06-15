@@ -80,7 +80,7 @@ a {
   color: #1971c2;
 }
 
-.toc-header.active .toc-item.dark {
+.toc-header.active .toc-item.active.dark {
   background-color: rgba(24, 100, 171, 0.45);
   color: rgb(208, 235, 255);
 }
@@ -107,7 +107,10 @@ a {
   border-bottom: 1px solid #e5e7eb; /* dark #303030 */
   padding: 7px 20px;
   font-size: 14px
-  
+}
+
+.custom-table.dark td {
+  border-bottom: 1px solid #303030;
 }
 
 .custom-table tbody tr:last-child td {

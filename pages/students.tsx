@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Code from "../components/Code";
-import { H1, H2 } from "../components/headings";
+import CodeBlock from "../components/CodeBlock";
+import { H1, H2, H3 } from "../components/headings";
 import Table, { TableProps } from "../components/Table";
 
 const modelTable: TableProps = {
@@ -62,6 +63,30 @@ const Students: NextPage = () => {
       <H1>Students</H1>
       <H2 id="model">Model</H2>
       <Table headers={modelTable.headers} data={modelTable.data} />
+      <H2>Get All Students</H2>
+      <p>Lists all students</p>
+      <H3>Request</H3>
+      <Code>GET /students</Code>
+      <CodeBlock aboveBlock="Example Request" language="shell">
+        {`curl https://app.cornerstone-schools.org/api/students \\
+  -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
+  -H 'Content-Type: application/json'  `}
+      </CodeBlock>
+      <CodeBlock aboveBlock="Example Request" language="javascript">
+        {`const CStone = require("cstone-dc")
+const cstone = new CStone({token: '<YOUR TOKEN HERE>'})
+
+// Promise <[ Students ]>
+const students = cstone.list({
+  status: "Active"
+})
+
+students.then(s => console.log(s))
+`}
+      </CodeBlock>
+      <H3>Path Parameters</H3>
+      <p>There are no path parameters for this request</p>
+      <H3>Query Parameters</H3>
     </>
   );
 };

@@ -71,7 +71,7 @@ function TOCSection({
     <ul className={`toc-header ${active ? "active" : ""}`} key={content.header}>
       <li
         className={`toc-item ${theme.colorScheme === "dark" ? "dark" : ""} ${
-          activeId === "" ? "active" : ""
+          active && activeId === "" ? "active" : ""
         }`}
       >
         <Link href={`/${content.resource}`}>{content.header}</Link>
@@ -86,7 +86,12 @@ function TOCSection({
           {content.subheaders.map((subheader) => {
             const refId = slugify(subheader, { lower: true });
             return (
-              <li className={`toc-item ${activeId === refId ? "active" : ""}`} key={subheader}>
+              <li
+                className={`toc-item ${activeId === refId ? "active" : ""} ${
+                  theme.colorScheme === "dark" ? "dark" : ""
+                }`}
+                key={subheader}
+              >
                 <div
                   style={{
                     borderLeftColor:
