@@ -23,9 +23,10 @@ export default function CodeBlock(props: CodeBlockProps) {
           float: "right",
           width: "40%",
           marginRight: 15,
+          marginBottom: 20,
         }}
       >
-        {props.aboveBlock}
+        <span style={{ fontWeight: 500 }}>{props.aboveBlock}</span>
         <div
           style={{
             backgroundColor,

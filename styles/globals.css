@@ -88,14 +88,14 @@ a {
 
 .custom-table {
   border-radius: 12px;
-  box-shadow: 0 1px 9px 0px rgb(0 0 0 / 17%);
+  /* box-shadow: 0 1px 9px 0px rgb(0 0 0 / 17%); */
   /* border:1px solid rgb(0 0 0 / 17%); */
   overflow: hidden;
   text-align: left
 }
 
 .custom-table th {
-  background-color: #f9f9fb;
+  /* background-color: #f9f9fb; */
   border-bottom: 1px solid #d1d5db;
   padding: 10px 20px;
   font-weight: 600;
@@ -104,7 +104,7 @@ a {
 }
 
 .custom-table td {
-  border-bottom: 1px solid #e5e7eb; /* dark #303030 */
+  border-bottom: 1px solid #e5e7eb; 
   padding: 7px 20px;
   font-size: 14px
 }
@@ -126,13 +126,13 @@ a {
   padding-right: 20px
 }
 
-.custom-table.dark {
+/* .custom-table.dark {
   box-shadow: 0 1px 9px 0px rgb(0 0 0 / 54%);
 }
 
 .custom-table.dark th {
   background-color: #373a40;
-}
+} */
 
 .main-container {
   margin-left: 250px;
@@ -146,7 +146,8 @@ a {
 .main-container h4, 
 .main-container h5, 
 .main-container h6, 
-.main-container p {
+.main-container p,
+.main-container table {
   margin-right: 45%
 }
 
