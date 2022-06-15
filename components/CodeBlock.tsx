@@ -17,15 +17,7 @@ export default function CodeBlock(props: CodeBlockProps) {
       }}
       data-language={props.language}
     >
-      <div
-        style={{
-          clear: "right",
-          float: "right",
-          width: "40%",
-          marginRight: 15,
-          marginBottom: 20,
-        }}
-      >
+      <div className="inner-code-block">
         <span style={{ fontWeight: 500 }}>{props.aboveBlock}</span>
         <div
           style={{
