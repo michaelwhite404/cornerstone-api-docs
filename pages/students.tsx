@@ -31,7 +31,7 @@ const Students: NextPage = () => {
 const cstone = new CStone({token: '<YOUR TOKEN HERE>'})
 
 // Promise <Student[]>
-const students = cstone.list({
+const students = cstone.students.list({
   status: "Active"
   limit: 2
 })

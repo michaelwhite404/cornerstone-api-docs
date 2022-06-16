@@ -1,5 +1,6 @@
 import { Button, Header, useMantineColorScheme } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
+import ThemeToggle from "../ThemeToggle";
 
 export default function TopBar() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -13,15 +14,7 @@ export default function TopBar() {
     <Header fixed height={60}>
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
         <div>
-          Header{" "}
-          <Button
-            // variant="outline"
-            color={dark ? "yellow" : "blue"}
-            onClick={() => toggleColorScheme()}
-            title="Toggle color scheme"
-          >
-            {dark ? "Toggle to light" : "Toggle to dark"}
-          </Button>
+          <ThemeToggle />
         </div>
         <div>
           Language: {language}

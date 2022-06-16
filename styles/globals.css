@@ -165,14 +165,14 @@ a {
   clear: right;
   float: right;
   width: 40%;
-  margin-right: 15;
-  margin-bottom: 20;
+  margin-right: 15px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 640px) {
   .inner-code-block {
-    clear:none;
-    float :none;
+    clear: none;
+    float: none;
     width: 100%
   }
 
@@ -194,6 +194,6 @@ a {
   }
 
   .main-container {
-    margin-left: none
+    margin-left: 0px
   }
 }
