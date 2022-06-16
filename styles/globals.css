@@ -136,8 +136,7 @@ a {
 
 .main-container {
   margin-left: 250px;
-  margin-top: 60px;
-  padding-left: 15px;
+  padding: 15px;
 }
 
 .main-container h1, 
@@ -186,6 +185,44 @@ a {
   .main-container table {
     margin-right: 0
   }
+}
+
+.language-selector {
+  display: flex;
+  background-color: #edf1f2;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 2px;
+  box-shadow: 0 1px 3px 0 rgb(21 27 38 / 15%);
+}
+
+.language-selector .active {
+  background-color: #fff;
+  color: #151b26;
+  -webkit-box-shadow: 0 1px 3px 0 rgb(21 27 38 / 15%);
+  box-shadow: 0 1px 3px 0 rgb(21 27 38 / 15%);
+}
+
+.language-selector div {
+  display: block;
+  float: left;
+  color: #151b26;
+  text-decoration: none;
+  padding: 0 10px;
+  line-height: 30px;
+  outline: 0;
+  border-radius: 20px;
+  cursor: pointer
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: fixed;
+  top: 25px;
+  right: 25px
 }
 
 @media screen and (max-width: 930px) {

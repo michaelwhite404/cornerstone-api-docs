@@ -36,7 +36,7 @@ export default function H2(props: HeadingProps) {
     <Title
       order={2}
       style={{
-        paddingTop: 60,
+        paddingTop: 20,
         marginBottom: 30,
         fontWeight: 300,
       }}

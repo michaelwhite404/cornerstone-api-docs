@@ -6,7 +6,8 @@ export default function H1(props: HeadingProps) {
     <Title
       order={1}
       style={{
-        margin: "40px 0",
+        paddingTop: 10,
+        marginBottom: 40,
         fontWeight: 300,
       }}
     >

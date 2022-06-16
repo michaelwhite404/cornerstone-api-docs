@@ -4,8 +4,11 @@ import TopBar from "./shell/TopBar";
 
 const AppContainer = (props: AppContainerProps) => {
   return (
-    <AppShell header={<TopBar />} navbar={<TableOfContents />}>
-      <div className="main-container">{props.children}</div>
+    <AppShell navbar={<TableOfContents />} styles={{ main: { padding: 0 } }}>
+      <div className="main-container">
+        <TopBar />
+        {props.children}
+      </div>
     </AppShell>
   );
 };
