@@ -198,7 +198,7 @@ a {
 
 .language-selector .active {
   background-color: #fff;
-  color: #151b26;
+  /* color: #151b26; */
   -webkit-box-shadow: 0 1px 3px 0 rgb(21 27 38 / 15%);
   box-shadow: 0 1px 3px 0 rgb(21 27 38 / 15%);
 }
@@ -206,13 +206,21 @@ a {
 .language-selector div {
   display: block;
   float: left;
-  color: #151b26;
+  /* color: #151b26; */
   text-decoration: none;
   padding: 0 10px;
   line-height: 30px;
   outline: 0;
   border-radius: 20px;
   cursor: pointer
+}
+
+.language-selector.dark {
+  background-color: #495057;
+}
+
+.language-selector.dark .active{
+  background-color: #2C2E33;
 }
 
 .top-bar {
