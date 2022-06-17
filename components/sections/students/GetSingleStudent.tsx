@@ -2,15 +2,14 @@ import { useRouter } from "next/router";
 import React from "react";
 import Code from "../../Code";
 import CodeBlock from "../../CodeBlock";
-import { H2, H3 } from "../../headings";
+import { H3 } from "../../headings";
+import Section from "../../Section";
 import Table from "../../Table";
 
 export function GetSingleStudent() {
   const router = useRouter();
-  const id = "get-single-student";
   return (
-    <section id="get-single-student">
-      <H2>Get Single Student</H2>
+    <Section heading="Get Single Student" id="get-single-student">
       <CodeBlock aboveBlock="Example cURL Request" language="shell">
         {`curl https://app.cornerstone-schools.org/api/students/5f43ba6edca18d644cbf6c65 \\
   -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
@@ -67,6 +66,6 @@ student.then(s => console.log(s))`}
       <Code>
         <span onClick={() => router.push("#model")}>Student</span>
       </Code>
-    </section>
+    </Section>
   );
 }

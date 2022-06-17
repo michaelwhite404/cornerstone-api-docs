@@ -17,7 +17,7 @@ export default function LanguageSelector() {
       {languages.map((l) => (
         <div
           key={l}
-          className={classnames({ active: language === l })}
+          className={classnames("language-option", { active: language === l })}
           onClick={() => setLanguage(l)}
         >
           {l}

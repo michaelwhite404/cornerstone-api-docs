@@ -3,12 +3,12 @@ import { listQueryTable } from "../../../tables/students";
 import Code from "../../Code";
 import CodeBlock from "../../CodeBlock";
 import { H2, H3 } from "../../headings";
+import Section from "../../Section";
 import Table from "../../Table";
 
 export function GetAllStudents() {
   return (
-    <section id="get-all-students">
-      <H2>Get All Students</H2>
+    <Section heading="Get All Students" id="get-all-students">
       <CodeBlock aboveBlock="Example Request" language="shell">
         {`curl https://app.cornerstone-schools.org/api/students?status=Active&limit=2 \\
   -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
@@ -68,6 +68,6 @@ students.then(s => console.log(s))
       <Table headers={listQueryTable.headers} data={listQueryTable.data}></Table>
       <H3>Response</H3>
       <Code>Student[]</Code>
-    </section>
+    </Section>
   );
 }

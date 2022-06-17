@@ -6,7 +6,7 @@ import { showNotification } from "@mantine/notifications";
 import { HeadingProps } from ".";
 import { useRouter } from "next/router";
 
-export default function H2(props: HeadingProps) {
+export default function H2(props: H2Props) {
   const router = useRouter();
   const { hovered, ref } = useHover<HTMLHeadingElement>();
   const { children, ...rest } = props;
@@ -46,7 +46,7 @@ export default function H2(props: HeadingProps) {
       {props.children}
       {hovered && (
         <CopyToClipboard
-          text={`http://localhost:3000${router.pathname}#${props.id}`}
+          text={`http://localhost:3000${router.pathname}#${props.hash}`}
           onCopy={handleCopy}
         >
           <LinkIcon className="link-icon" />
@@ -54,4 +54,8 @@ export default function H2(props: HeadingProps) {
       )}
     </Title>
   );
+}
+
+interface H2Props extends HeadingProps {
+  hash?: string;
 }
