@@ -136,7 +136,7 @@ a {
 
 .main-container {
   margin-left: 250px;
-  padding: 15px;
+  padding: 20px;
 }
 
 .main-container h1, 
@@ -241,4 +241,14 @@ a {
   .main-container {
     margin-left: 0px
   }
+}
+
+section {
+  padding-bottom: 20px;
+}
+
+section::after {
+  clear: both;
+  content: "";
+  display: block;
 }
