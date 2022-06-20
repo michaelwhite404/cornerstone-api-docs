@@ -9,9 +9,9 @@ export function CreateStudent() {
   return (
     <Section heading="Create Student" id="create-student">
       <CodeBlock language="shell" aboveBlock="Example cURL Request">
-        {`curl -X POST https://app.cornerstone-schools.org/api/students
-  -H "Authorization: Bearer <YOUR TOKEN HERE>"
-  -H "content-type: application/json"
+        {`curl -X POST https://app.cornerstone-schools.org/api/students \\
+  -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
+  -H "content-type: application/json" \\
   --data-raw '{
     "firstName": "Fake",
     "lastName": "Student",
@@ -20,13 +20,13 @@ export function CreateStudent() {
     "grade": 7
   }'`}
       </CodeBlock>
-      <CodeBlock language="javascript">
+      <CodeBlock aboveBlock="Example Javascript Request" language="javascript">
         {`const CStone = require("cstone-dc")
 const cstone = new CStone({token: '<YOUR TOKEN HERE>'})
 
 // Promise <Student>
 const student = cstone.students.create({
-  body: {
+  data: {
     firstName: "Fake",
     lastName: "Student",
     schoolEmail: "fake.student@cornerstone-schools.org",
@@ -66,13 +66,12 @@ student.then(s => console.log(s))
           {
             name: (
               <>
-                <Code>body</Code>
+                <Code>data</Code>
                 <span className="param-type">Object</span>
                 <div className="param-required">required</div>
               </>
             ),
             in: "body",
-            type: "Object",
             description: "The data used to create a student",
           },
         ]}

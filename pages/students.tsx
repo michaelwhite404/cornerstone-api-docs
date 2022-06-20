@@ -6,6 +6,7 @@ import {
   GetAllStudents,
   GetSingleStudent,
   StudentModel,
+  UpdateStudent,
 } from "../components/sections/students";
 
 const Students: NextPage = () => {
@@ -21,6 +22,7 @@ const Students: NextPage = () => {
       <GetAllStudents />
       <GetSingleStudent />
       <CreateStudent />
+      <UpdateStudent />
     </>
   );
 };

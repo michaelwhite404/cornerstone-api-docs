@@ -48,13 +48,17 @@ student.then(s => console.log(s))`}
       <Table
         headers={[
           { label: "Parameters", key: "parameters" },
-          { label: "Required", key: "required" },
           { label: "Description", key: "description" },
         ]}
         data={[
           {
-            parameters: <Code>studentId</Code>,
-            required: "True",
+            parameters: (
+              <>
+                <Code>studentId</Code>
+                <span className="param-type">String</span>
+                <div className="param-required">required</div>
+              </>
+            ),
             description: "The id of the student to find",
           },
         ]}
