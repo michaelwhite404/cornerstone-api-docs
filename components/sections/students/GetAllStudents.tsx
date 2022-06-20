@@ -10,9 +10,8 @@ export function GetAllStudents() {
   return (
     <Section heading="Get All Students" id="get-all-students">
       <CodeBlock aboveBlock="Example Request" language="shell">
-        {`curl https://app.cornerstone-schools.org/api/students?status=Active&limit=2 \\
-  -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
-  -H 'Content-Type: application/json'  `}
+        {`curl 'https://app.cornerstone-schools.org/api/students?status=Active&limit=2' \\
+  -H "Authorization: Bearer <YOUR TOKEN HERE>"`}
       </CodeBlock>
       <CodeBlock aboveBlock="Example Request" language="javascript">
         {`const CStone = require("cstone-dc")
@@ -22,9 +21,9 @@ const cstone = new CStone({token: '<YOUR TOKEN HERE>'})
 const students = cstone.students.list({
   status: "Active"
   limit: 2
-})
+});
 
-students.then(s => console.log(s))
+students.then(s => console.log(s));
 `}
       </CodeBlock>
       <CodeBlock aboveBlock="Example JSON Response" language="json">

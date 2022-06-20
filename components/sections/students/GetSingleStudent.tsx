@@ -12,8 +12,7 @@ export function GetSingleStudent() {
     <Section heading="Get Single Student" id="get-single-student">
       <CodeBlock aboveBlock="Example cURL Request" language="shell">
         {`curl https://app.cornerstone-schools.org/api/students/5f43ba6edca18d644cbf6c65 \\
-  -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
-  -H 'Content-Type: application/json'  `}
+  -H "Authorization: Bearer <YOUR TOKEN HERE>"`}
       </CodeBlock>
       <CodeBlock aboveBlock="Example JS Request" language="javascript">
         {`const CStone = require("cstone-dc")

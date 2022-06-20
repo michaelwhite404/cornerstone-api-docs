@@ -252,3 +252,22 @@ section::after {
   content: "";
   display: block;
 }
+
+.param-type {
+  margin-left: 4px;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.07px;
+  color: #6F7782;
+}
+
+.param-required {
+  font-size: 10px;
+  color: #FF5263;
+  letter-spacing: 0.07px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 16px;
+  margin-top: 5px;
+  margin-left: 5px
+}

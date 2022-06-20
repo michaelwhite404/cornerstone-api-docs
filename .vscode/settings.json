@@ -2,5 +2,8 @@
   "exportall.config.relExclusion": [
     "/components/headings",
     "/components/headings/index.ts"
+  ],
+  "exportall.config.folderListener": [
+    "/components/sections/students"
   ]
 }

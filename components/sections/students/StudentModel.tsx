@@ -1,13 +1,13 @@
 import React from "react";
 import { modelTable } from "../../../tables/students";
-import { H2 } from "../../headings";
+import Section from "../../Section";
 import Table from "../../Table";
 
 export function StudentModel() {
+  const { data, headers } = modelTable;
   return (
-    <section id="model">
-      <H2>Model</H2>
-      <Table headers={modelTable.headers} data={modelTable.data} />
-    </section>
+    <Section heading="Model" id="model">
+      <Table headers={headers} data={data} />
+    </Section>
   );
 }

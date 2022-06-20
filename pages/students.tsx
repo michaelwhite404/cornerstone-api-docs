@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { H1 } from "../components/headings";
-import { GetAllStudents, GetSingleStudent, StudentModel } from "../components/sections/students";
+import {
+  CreateStudent,
+  GetAllStudents,
+  GetSingleStudent,
+  StudentModel,
+} from "../components/sections/students";
 
 const Students: NextPage = () => {
   return (
@@ -15,6 +20,7 @@ const Students: NextPage = () => {
       <StudentModel />
       <GetAllStudents />
       <GetSingleStudent />
+      <CreateStudent />
     </>
   );
 };
