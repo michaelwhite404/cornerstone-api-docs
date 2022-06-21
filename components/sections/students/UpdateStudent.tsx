@@ -10,8 +10,8 @@ export function UpdateStudent() {
     <Section heading="Update Student" id="update-student">
       <CodeBlock aboveBlock="Example cURL Request" language="shell">
         {`curl -X PATCH https://app.cornerstone-schools.org/api/students/5f43ba6edca18d644cbf6c65 \\
-  -H "Authorization: Bearer <YOUR TOKEN HERE>"
-  -H "content-type: application/json"
+  -H "Authorization: Bearer <YOUR TOKEN HERE>" \\
+  -H "content-type: application/json" \\
   --data-raw '{
     "firstName": "Real",
     "grade": 8
@@ -24,6 +24,7 @@ const cstone = new CStone({token: '<YOUR TOKEN HERE>'});
 
 // Promise <Student>
 const student = cstone.students.update({
+  studentId: "5f43ba6edca18d644cbf6c65"
   data: {
     firstName: "Real",
     grade: 8
@@ -61,12 +62,12 @@ student.then(s => console.log(s));`}
         data={[
           {
             name: <CodeParam text="studentId" type="String" required />,
-            in: "body",
+            in: "path",
             description: "The id of the student to update",
           },
           {
             name: <CodeParam text="data" type="Object" required />,
-            in: "path",
+            in: "body",
             description: "An object of fields to update",
           },
         ]}
