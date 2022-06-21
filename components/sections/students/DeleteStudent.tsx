@@ -26,7 +26,7 @@ response.then(r => console.log(r.message));
 `}
       </CodeBlock>
       <CodeBlock language="json" aboveBlock="Example JSON Response">
-        {`{ message: "1 student has been deleted" }`}
+        {`{ "message": "1 student has been deleted" }`}
       </CodeBlock>
       <p>Delete a student</p>
       <H3>Request</H3>

@@ -8,6 +8,7 @@ import {
   StudentModel,
   UpdateStudent,
   DeleteStudent,
+  GroupStudents,
 } from "../components/sections/students";
 
 const Students: NextPage = () => {
@@ -25,6 +26,7 @@ const Students: NextPage = () => {
       <CreateStudent />
       <UpdateStudent />
       <DeleteStudent />
+      <GroupStudents />
     </>
   );
 };
