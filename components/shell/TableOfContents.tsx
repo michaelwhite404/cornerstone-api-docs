@@ -31,6 +31,11 @@ const contents: NavbarContent[] = [
     ],
     resource: "students",
   },
+  {
+    header: "Devices",
+    resource: "devices",
+    subheaders: ["Model", "Get All Devices"],
+  },
 ];
 
 export default function TableOfContents() {
