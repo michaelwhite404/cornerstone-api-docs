@@ -30,20 +30,12 @@ export const modelTable: TableProps = {
       description: "The device mac address",
     },
     {
-      field: <CodeParam type="String" text="serialNumber" />,
-      description: "The device serial number",
-    },
-    {
       field: <CodeParam type="DeviceStatus" text="status" />,
       description: "The current status of the device",
     },
     {
-      field: <CodeParam type="String" text="serialNumber" />,
-      description: "The device serial number",
-    },
-    {
       field: <CodeParam type="String" text="deviceType" />,
-      description: "The device serial number",
+      description: "The type of device",
     },
     {
       field: <CodeParam type="String" text="slug" />,
