@@ -1,0 +1,29 @@
+path
+query
+data/body
+
+
+// Update Device
+
+// JS Object
+{
+  deviceId: "1234567890qwerty" //path
+  data: {
+    name: "NM 01",
+    brand: "HP"
+  }
+}
+
+|
+|
+|
+▼
+
+// JSON
+{
+  "deviceId": "1234567890qwerty" //path
+  "data": {
+    "name": "NM 01",
+    "brand": "HP"
+  }
+}

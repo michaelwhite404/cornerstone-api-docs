@@ -34,7 +34,7 @@ const contents: NavbarContent[] = [
   {
     header: "Devices",
     resource: "devices",
-    subheaders: ["Model", "Get All Devices"],
+    subheaders: ["Model", "Get All Devices", "Get Device"],
   },
 ];
 
