@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { H1 } from "../components/headings";
 import {
   CreateDevice,
+  DeleteDevice,
   DeviceModel,
   GetAllDevices,
   GetDevice,
@@ -17,6 +18,7 @@ const Devices: NextPage = () => {
       <GetDevice />
       <CreateDevice />
       <UpdateDevice />
+      <DeleteDevice />
     </>
   );
 };
