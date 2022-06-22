@@ -6,3 +6,9 @@ export interface ParameterData {
   description: string;
   example: string;
 }
+
+// interface BodyParameter {
+//   in: "body";
+//   required: true;
+//   example: Object;
+// }

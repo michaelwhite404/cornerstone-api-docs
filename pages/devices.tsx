@@ -5,6 +5,7 @@ import {
   DeviceModel,
   GetAllDevices,
   GetDevice,
+  UpdateDevice,
 } from "../components/sections/devices";
 
 const Devices: NextPage = () => {
@@ -15,6 +16,7 @@ const Devices: NextPage = () => {
       <GetAllDevices />
       <GetDevice />
       <CreateDevice />
+      <UpdateDevice />
     </>
   );
 };

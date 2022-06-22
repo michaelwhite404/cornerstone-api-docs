@@ -35,7 +35,7 @@ const props: ResourceSectionProps = {
   },
   codeBlocks: {
     shell: {
-      headers: "",
+      headers: `"content-type: application/json"`,
     },
     javascript: {
       resource: "devices.create",

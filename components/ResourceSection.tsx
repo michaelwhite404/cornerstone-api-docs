@@ -17,7 +17,7 @@ export default function ResourceSection(props: ResourceSectionProps) {
     const headers = props.codeBlocks.shell?.headers;
     if (!headers) return "";
     if (!Array.isArray(headers)) {
-      return ` \\\n -H ${headers}`;
+      return ` \\\n  -H ${headers}`;
     }
     return headers.map((h) => ` \\\n  -H ${h}`).join("");
   };
@@ -86,7 +86,7 @@ export default function ResourceSection(props: ResourceSectionProps) {
           method !== "GET" ? ` -X ${method}` : ""
         } https://app.cornerstone-schools.org/api${getPath()} \\\n  -H "Authorization: Bearer <YOUR TOKEN HERE>"${getHeaders()}${getShellData()}`}
       </CodeBlock>
-      <CodeBlock aboveBlock="Example Request" language="javascript">
+      <CodeBlock aboveBlock="Example Javascript Request" language="javascript">
         {`const CStone = require("cstone-dc");
 const cstone = new CStone({token: "<YOUR TOKEN HERE>"});
 
