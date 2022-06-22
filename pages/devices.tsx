@@ -1,6 +1,11 @@
 import { NextPage } from "next";
 import { H1 } from "../components/headings";
-import { DeviceModel, GetAllDevices, GetDevice } from "../components/sections/devices";
+import {
+  CreateDevice,
+  DeviceModel,
+  GetAllDevices,
+  GetDevice,
+} from "../components/sections/devices";
 
 const Devices: NextPage = () => {
   return (
@@ -9,6 +14,7 @@ const Devices: NextPage = () => {
       <DeviceModel />
       <GetAllDevices />
       <GetDevice />
+      <CreateDevice />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { ResourceSectionProps } from "../../../types";
 import ResourceSection from "../../ResourceSection";
 
@@ -15,7 +14,7 @@ const props: ResourceSectionProps = {
     {
       name: "deviceId",
       type: "String",
-      in: "body",
+      in: "path",
       required: true,
       description: "The id of the device to find",
       example: "5f437327dca18d644cbf6b74",
@@ -26,9 +25,6 @@ const props: ResourceSectionProps = {
     data: [{ name: "device", type: "Device", description: "The queried device" }],
   },
   codeBlocks: {
-    shell: {
-      headers: undefined,
-    },
     javascript: {
       resource: "devices.get",
       variableName: "device",

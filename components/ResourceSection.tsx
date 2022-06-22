@@ -14,7 +14,7 @@ export default function ResourceSection(props: ResourceSectionProps) {
   const { javascript } = props.codeBlocks;
 
   const getHeaders = () => {
-    const { headers } = props.codeBlocks.shell;
+    const headers = props.codeBlocks.shell?.headers;
     if (!headers) return "";
     if (!Array.isArray(headers)) {
       return ` \\\n -H ${headers}`;
@@ -52,22 +52,27 @@ export default function ResourceSection(props: ResourceSectionProps) {
   const createParamObject = () => {
     const paramsObj: { [x: string]: any } = {};
     props.parameters?.forEach((p) => {
-      paramsObj[p.name] = p.example;
+      if (p.in !== "body") paramsObj[p.name] = p.example;
     });
     if (props.data) paramsObj.data = props.data;
+    if (Object.keys(paramsObj).length === 0) return;
     return paramsObj;
   };
 
-  const jsParamObj = stringifyObject(createParamObject(), {
-    singleQuotes: false,
-    indent: "  ",
-  });
+  const str = createParamObject();
+  const jsParamObj = str
+    ? stringifyObject(createParamObject(), {
+        singleQuotes: false,
+        indent: "  ",
+      })
+    : "";
 
   const getShellData = () => {
     if (!props.data) return "";
     const shellDataStr = prettyFormat(props.data, {
       printBasicPrototype: false,
       indent: 4,
+      compareKeys: (a, b) => 1,
     });
     const str = shellDataStr.slice(0, -1) + "  " + shellDataStr.slice(-1);
     return ` \\\n  --data-raw '${str}'`;
@@ -91,7 +96,7 @@ const ${javascript.variableName} = cstone.${javascript.resource}(${jsParamObj});
 ${javascript.variableName}.then((${javascript.variableName.slice(
           0,
           1
-        )}) => console.log(${javascript.variableName.slice(0, 1)}))`}
+        )}) => console.log(${javascript.variableName.slice(0, 1)}));`}
       </CodeBlock>
       <CodeBlock language="json" aboveBlock="Example JSON Response">
         {props.codeBlocks.response}

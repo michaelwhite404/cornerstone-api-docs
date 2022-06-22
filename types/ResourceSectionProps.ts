@@ -13,7 +13,7 @@ export interface ResourceSectionProps {
   data?: Object;
   response: Response;
   codeBlocks: {
-    shell: {
+    shell?: {
       headers?: string | string[];
     };
     javascript: {
