@@ -5,7 +5,7 @@ import ResourceSection from "../../ResourceSection";
 const props: ResourceSectionProps = {
   heading: "Get Device",
   id: "get-device",
-  description: "Retrieves a device",
+  description: "Retrieves a device's properties",
   resource: "devices",
   request: {
     method: "GET",
@@ -21,6 +21,10 @@ const props: ResourceSectionProps = {
       example: "5f437327dca18d644cbf6b74",
     },
   ],
+  response: {
+    type: "table",
+    data: [{ name: "device", type: "Device", description: "The queried device" }],
+  },
   codeBlocks: {
     shell: {
       headers: undefined,

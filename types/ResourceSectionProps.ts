@@ -11,7 +11,7 @@ export interface ResourceSectionProps {
   };
   parameters?: ParameterData[];
   data?: Object;
-  response?: any;
+  response: Response;
   codeBlocks: {
     shell: {
       headers?: string | string[];
@@ -27,3 +27,15 @@ export interface ResourceSectionProps {
 
 type HTTPVerb = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 type Path = `/${string}`;
+
+interface CodeResponse {
+  type: "code";
+  text: string;
+}
+
+interface TableResponse {
+  type: "table";
+  data: { name: string; type: string; description: string }[];
+}
+
+type Response = CodeResponse | TableResponse;

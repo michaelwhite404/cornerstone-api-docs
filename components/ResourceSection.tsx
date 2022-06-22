@@ -6,6 +6,8 @@ import Code from "./Code";
 import CodeBlock from "./CodeBlock";
 import { H2, H3 } from "./headings";
 import ParameterTable from "./ParameterTable";
+import Table from "./Table";
+import CodeParam from "./CodeParam";
 
 export default function ResourceSection(props: ResourceSectionProps) {
   const { path, method } = props.request;
@@ -104,6 +106,19 @@ ${javascript.variableName}.then((${javascript.variableName.slice(
         <p>There are no parameters with this request</p>
       )}
       <H3>Response</H3>
+      {props.response.type === "code" && <Code>{props.response.text}</Code>}
+      {props.response.type === "table" && (
+        <Table
+          headers={[
+            { label: "Name", key: "name" },
+            { label: "Description", key: "description" },
+          ]}
+          data={props.response.data.map((d) => ({
+            name: <CodeParam text={d.name} type={d.type} />,
+            description: d.description,
+          }))}
+        />
+      )}
     </section>
   );
 }
